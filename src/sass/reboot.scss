@@ -18,18 +18,13 @@ html {
   line-height: 24px;
   font-family: $ff-montserrat;
   color: $color-bunting;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // оптимизация выравнивания шрифта относительно центра строки
   text-rendering: optimizeLegibility;
   // если по прежнему есть проблемы с выравниванием
   // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
-  @include vp-1023 {
-    font-size: 16px;
-  }
-  @include vp-767 {
-    font-size: 14px;
-  }
 }
 
 body {
@@ -130,11 +125,4 @@ button,
 [type="reset"],
 [type="submit"] {
   appearance: none;
-}
-
-ul[class],
-ol[class] {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
