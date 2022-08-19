@@ -1,0 +1,11 @@
+@import '../../sass/variables';
+@import '../../sass/mixins';
+@import '../../sass/title';
+@import '../../sass/container';
+
+.message {
+	background-color: $color-ghost-white;
+}
+.title {
+	color: $color-neon-blue;
+}
