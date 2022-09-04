@@ -3,9 +3,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.scss';
 import { Message } from './components/Message/Message';
-import { Button, Grid, List, ListItemText, TextField } from '@mui/material';
+import { Grid, List, ListItemText } from '@mui/material';
 import { blue } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import FormField from './components/FormField/FormField';
 
 const authors = {
   user: "user",
@@ -25,19 +26,6 @@ const theme = createTheme({
 function App() {
 
   const [messageList, setMessageList] = useState([]);
-  const [inputValue, setInputValue] = useState('');
-
-  const handleMessageChange = (evt) => {
-    setInputValue(evt.target.value)
-  }
-
-  const handleMessageSubmit = (evt) => {
-    evt.preventDefault();
-    setMessageList((currentMessageList) => [
-      ...currentMessageList, { author: authors.user, text: inputValue }
-    ])
-    setInputValue('')
-  }
 
   useEffect(() => {
     if (messageList.length && messageList[messageList.length - 1].author !== authors.bot) {
@@ -72,11 +60,7 @@ function App() {
                       <Message key={index} author={message.author} text={message.text} />
                     ))}
                   </ul>
-
-                  <form className="chat__form" action="#" onSubmit={handleMessageSubmit}>
-                    <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder=" Введите текст..." onChange={handleMessageChange} className="text"> </TextField>
-                    <Button variant="contained" color="primary" type="submit" className="chat__submit">Send</Button>
-                  </form>
+                  <FormField />
                 </div>
               </Grid>
             </Grid>
