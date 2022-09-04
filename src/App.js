@@ -52,34 +52,36 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <section className="message">
-          <Grid container spacing={2}>
-            <Grid item xs={4}>
-              <div className="list">
-                <List>
-                  <ListItemText className="item">1 чат</ListItemText>
-                  <ListItemText className="item">2 чат</ListItemText>
-                  <ListItemText className="item">3 чат</ListItemText>
-                  <ListItemText className="item">4 чат</ListItemText>
-                </List>
-              </div>
-            </Grid>
-            <Grid item xs={8}>
-              <div className="chat">
-                <ul className="message__list">
-                  {messageList.map((message, index) => (
-                    <Message key={index} author={message.author} text={message.text} />
-                  ))}
-                </ul>
+        <main>
+          <section className="message">
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <div className="list">
+                  <List>
+                    <ListItemText className="item">1 чат</ListItemText>
+                    <ListItemText className="item">2 чат</ListItemText>
+                    <ListItemText className="item">3 чат</ListItemText>
+                    <ListItemText className="item">4 чат</ListItemText>
+                  </List>
+                </div>
+              </Grid>
+              <Grid item xs={8}>
+                <div className="chat">
+                  <ul className="message__list">
+                    {messageList.map((message, index) => (
+                      <Message key={index} author={message.author} text={message.text} />
+                    ))}
+                  </ul>
 
-                <form className="chat__form" action="#" onSubmit={handleMessageSubmit}>
-                  <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder=" Введите текст..." onChange={handleMessageChange} className="text"> </TextField>
-                  <Button variant="contained" color="primary" type="submit" className="chat__submit">Send</Button>
-                </form>
-              </div>
+                  <form className="chat__form" action="#" onSubmit={handleMessageSubmit}>
+                    <TextField fullWidth autoFocus id="filled-basic" value={inputValue} placeholder=" Введите текст..." onChange={handleMessageChange} className="text"> </TextField>
+                    <Button variant="contained" color="primary" type="submit" className="chat__submit">Send</Button>
+                  </form>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-        </section>
+          </section>
+        </main>
       </div>
     </ThemeProvider>
   );
